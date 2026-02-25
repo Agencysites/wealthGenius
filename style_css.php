@@ -7,7 +7,7 @@ $is_live = (
 if ($is_live) {
     $base_url = "https://a-c-m-e.in/wealthGenius/";
 } else {
-    $base_url = "http://localhost/web/wealth-genius-new/";
+    $base_url = "http://localhost:8080/web/wealth-genius-new/";
 }
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">

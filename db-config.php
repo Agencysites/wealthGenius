@@ -19,7 +19,7 @@ if (!$is_live) {
     $DB_NAME = "wealthgenius";
 } else {
     // LIVE SERVER (Hostinger)
-    $DB_HOST = "srv1755.hstgr.io";
+    $DB_HOST = "localhost";
     $DB_USER = "u133917450_admin";      
     $DB_PASS = "wealthGenius-2026";
     $DB_NAME = "u133917450_wealthgenius";

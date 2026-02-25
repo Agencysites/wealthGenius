@@ -39,7 +39,7 @@
                         <h1 data-aos="fade-up">Introduction To Savings & Investments</h1>
                     </div>
                     <div class="banner-bg p-0">
-                        <img data-aos="fade-up" data-aos-delay="100"
+                        <img data-aos="fade-up"
                             src="<?= $base_url ?>assets/images/services/taxation-bg.webp">
                     </div>
                 </section>

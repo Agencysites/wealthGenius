@@ -1,3 +1,174 @@
+<?php
+session_start();
+
+$username_correct = "admin";
+$password_correct = "WG-0226";
+$error = "";
+
+if (isset($_POST['login'])) {
+    $user = $_POST['username'] ?? '';
+    $pass = $_POST['password'] ?? '';
+
+    if ($user === $username_correct && $pass === $password_correct) {
+        $_SESSION['authenticated'] = true;
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    include 'style_css.php';
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Login | Wealth Genius</title>
+        <style>
+            :root {
+                --primary-green: #279C5C;
+                --dark-green: #043B1C;
+                --white: #ffffff;
+                --gray: #f4f7f6;
+            }
+            body {
+                background: linear-gradient(135deg, var(--dark-green) 0%, #0a1f14 100%);
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Inter', sans-serif;
+                margin: 0;
+            }
+            .login-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 3rem;
+                border-radius: 24px;
+                width: 100%;
+                max-width: 450px;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                animation: fadeInUp 0.8s ease-out;
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .logo-placeholder {
+                margin-bottom: 2rem;
+            }
+            .logo-placeholder img {
+                max-width: 180px;
+            }
+            h2 {
+                color: var(--white);
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+            }
+            p.subtitle {
+                color: rgba(255, 255, 255, 0.6);
+                margin-bottom: 2.5rem;
+                font-size: 0.95rem;
+            }
+            .form-group {
+                text-align: left;
+                margin-bottom: 1.5rem;
+            }
+            label {
+                display: block;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+            input {
+                width: 100%;
+                padding: 12px 16px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                color: white;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                outline: none;
+            }
+            input:focus {
+                background: rgba(255, 255, 255, 0.12);
+                border-color: var(--primary-green);
+                box-shadow: 0 0 0 4px rgba(39, 156, 92, 0.15);
+            }
+            .error-msg {
+                color: #ff4d4d;
+                background: rgba(255, 77, 77, 0.1);
+                padding: 10px;
+                border-radius: 8px;
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+                border: 1px solid rgba(255, 77, 77, 0.2);
+            }
+            button {
+                width: 100%;
+                padding: 14px;
+                background: linear-gradient(to right, var(--primary-green), #1e7d4a);
+                border: none;
+                border-radius: 12px;
+                color: white;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                margin-top: 1rem;
+            }
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(39, 156, 92, 0.4);
+            }
+            button:active {
+                transform: translateY(0);
+            }
+            .copyright {
+                margin-top: 2.5rem;
+                color: rgba(255, 255, 255, 0.3);
+                font-size: 0.75rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-card">
+            <div class="logo-placeholder">
+                <img src="<?= $base_url ?>assets/images/logo.png" alt="Wealth Genius">
+            </div>
+            <h2>Secure Access</h2>
+            <p class="subtitle">Please enter your credentials to proceed.</p>
+            
+            <?php if ($error): ?>
+                <div class="error-msg"><?php echo $error; ?></div>
+            <?php endif; ?>
+
+            <form method="POST">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" name="login">Sign In</button>
+            </form>
+
+            <div class="copyright">
+                &copy; <?php echo date('Y'); ?> Wealth Genius Ltd. All rights reserved.
+            </div>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -176,7 +347,7 @@
                             href="mailto:support@wealthgenius.co.uk">support@wealthgenius.co.uk</a> and we'll be pleased
                         to help you.</p>
                     <div class="about-links">
-                        <a href="<?= $base_url ?>about.php" data-aos="fade-up">View More <span><svg width="9" height="8" viewBox="0 0 9 8"
+                        <a href="<?= $base_url ?>about-us.php" data-aos="fade-up">View More <span><svg width="9" height="8" viewBox="0 0 9 8"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M0.5 3.18164C0.223858 3.18164 0 3.4055 0 3.68164C0 3.95778 0.223858 4.18164 0.5 4.18164V3.68164V3.18164ZM8.85355 4.03519C9.04882 3.83993 9.04882 3.52335 8.85355 3.32809L5.67157 0.146107C5.47631 -0.0491555 5.15973 -0.0491555 4.96447 0.146107C4.7692 0.341369 4.7692 0.657951 4.96447 0.853214L7.79289 3.68164L4.96447 6.51007C4.7692 6.70533 4.7692 7.02191 4.96447 7.21717C5.15973 7.41244 5.47631 7.41244 5.67157 7.21717L8.85355 4.03519ZM0.5 3.68164V4.18164H8.5V3.68164V3.18164H0.5V3.68164Z"

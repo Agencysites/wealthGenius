@@ -54,7 +54,7 @@
                                 strategies that will use the lawful reliefs and allowances to minimise the amount you
                                 have to pay.</p>
                             <div class="text-link">
-                                <a href="#">Know More <span><svg viewBox="0 0 9 8" fill="none"
+                                <a href="<?= $base_url ?>services/taxation/introduction-to-taxation.php">Know More <span><svg viewBox="0 0 9 8" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M0.5 3.18188C0.223858 3.18188 0 3.40574 0 3.68188C0 3.95803 0.223858 4.18188 0.5 4.18188V3.68188V3.18188ZM8.85355 4.03544C9.04882 3.84018 9.04882 3.52359 8.85355 3.32833L5.67157 0.146351C5.47631 -0.0489113 5.15973 -0.0489113 4.96447 0.146351C4.7692 0.341613 4.7692 0.658195 4.96447 0.853458L7.79289 3.68188L4.96447 6.51031C4.7692 6.70557 4.7692 7.02216 4.96447 7.21742C5.15973 7.41268 5.47631 7.41268 5.67157 7.21742L8.85355 4.03544ZM0.5 3.68188V4.18188H8.5V3.68188V3.18188H0.5V3.68188Z"
@@ -80,7 +80,7 @@
                                 £12,570). If your total income is less than this during the tax year, you have no tax to
                                 pay.</p>
                             <div class="text-link">
-                                <a href="#">Know More <span><svg viewBox="0 0 9 8" fill="none"
+                                <a href="<?= $base_url ?>services/taxation/income-tax.php">Know More <span><svg viewBox="0 0 9 8" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M0.5 3.18188C0.223858 3.18188 0 3.40574 0 3.68188C0 3.95803 0.223858 4.18188 0.5 4.18188V3.68188V3.18188ZM8.85355 4.03544C9.04882 3.84018 9.04882 3.52359 8.85355 3.32833L5.67157 0.146351C5.47631 -0.0489113 5.15973 -0.0489113 4.96447 0.146351C4.7692 0.341613 4.7692 0.658195 4.96447 0.853458L7.79289 3.68188L4.96447 6.51031C4.7692 6.70557 4.7692 7.02216 4.96447 7.21742C5.15973 7.41268 5.47631 7.41268 5.67157 7.21742L8.85355 4.03544ZM0.5 3.68188V4.18188H8.5V3.68188V3.18188H0.5V3.68188Z"
@@ -114,7 +114,7 @@
                                 investments during the tax year up to that amount. You do not normally have to pay tax
                                 on any gain you make when you sell your main residence.</p>
                             <div class="text-link">
-                                <a href="#">Know More <span><svg viewBox="0 0 9 8" fill="none"
+                                <a href="<?= $base_url ?>services/taxation/capital-gains-tax.php">Know More <span><svg viewBox="0 0 9 8" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M0.5 3.18188C0.223858 3.18188 0 3.40574 0 3.68188C0 3.95803 0.223858 4.18188 0.5 4.18188V3.68188V3.18188ZM8.85355 4.03544C9.04882 3.84018 9.04882 3.52359 8.85355 3.32833L5.67157 0.146351C5.47631 -0.0489113 5.15973 -0.0489113 4.96447 0.146351C4.7692 0.341613 4.7692 0.658195 4.96447 0.853458L7.79289 3.68188L4.96447 6.51031C4.7692 6.70557 4.7692 7.02216 4.96447 7.21742C5.15973 7.41268 5.47631 7.41268 5.67157 7.21742L8.85355 4.03544ZM0.5 3.68188V4.18188H8.5V3.68188V3.18188H0.5V3.68188Z"
@@ -148,7 +148,7 @@
                                 (2025/2026) and is added to the IHT threshold providing a total allowance of £500,000
                                 (2025/2026).</p>
                             <div class="text-link">
-                                <a href="#">Know More <span><svg viewBox="0 0 9 8" fill="none"
+                                <a href="<?= $base_url ?>services/taxation/inheritance-tax.php">Know More <span><svg viewBox="0 0 9 8" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M0.5 3.18188C0.223858 3.18188 0 3.40574 0 3.68188C0 3.95803 0.223858 4.18188 0.5 4.18188V3.68188V3.18188ZM8.85355 4.03544C9.04882 3.84018 9.04882 3.52359 8.85355 3.32833L5.67157 0.146351C5.47631 -0.0489113 5.15973 -0.0489113 4.96447 0.146351C4.7692 0.341613 4.7692 0.658195 4.96447 0.853458L7.79289 3.68188L4.96447 6.51031C4.7692 6.70557 4.7692 7.02216 4.96447 7.21742C5.15973 7.41268 5.47631 7.41268 5.67157 7.21742L8.85355 4.03544ZM0.5 3.68188V4.18188H8.5V3.68188V3.18188H0.5V3.68188Z"

@@ -13,9 +13,9 @@ $is_live = (
 
 if ($is_live) {
     define( 'DB_NAME', 'u133917450_wealthgenius' );
-    define( 'DB_USER', 'u133917450_admin' );
+    define( 'DB_USER', 'admin' );
     define( 'DB_PASSWORD', 'wealthGenius-2026' );
-    define( 'DB_HOST', 'srv1755.hstgr.io' );
+    define( 'DB_HOST', 'localhost' );
 
     define( 'WP_HOME', 'https://a-c-m-e.in/wealthGenius/blogs' );
     define( 'WP_SITEURL', 'https://a-c-m-e.in/wealthGenius/blogs' );

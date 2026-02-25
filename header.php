@@ -1,7 +1,7 @@
-<header>
+<header class="panel">
     <div class="header-main">
         <div class="header-logo">
-            <a href="<?= $base_url ?>"><img src="<?= $base_url ?>assets/images/logo.png"></a>
+            <a href="<?= $base_url ?>"><img src="<?= $base_url ?>assets/images/logo.png" alt="Wealth Genius"></a>
         </div>
         <div class="sub-header">
             <ul>
@@ -25,247 +25,165 @@
                             </defs>
                         </svg>
                         support@wealthgenius.co.uk</a></li>
-                <li><a class="contact-btn" href="<?= $base_url ?>contact.php">Contact Us</a></li>
+                <li><a href="<?= $base_url ?>contact.php" class="contact-btn">Contact Us</a></li>
             </ul>
         </div>
         <div class="main-nav">
             <nav>
                 <ul class="nav-links">
                     <li><a href="<?= $base_url ?>">Home</a></li>
+
                     <li class="dropdown-item">
                         <a href="javascript:void(0)" class="menu-trigger" data-target="aboutMenu">About Us</a>
-                        <div class="mega-dropdown" id="aboutMenu">
-                            <div class="dropdown-header">
-                                <h3>About Us</h3>
-                                <a class="<?= $base_url ?>about-us.php">View All</a>
-                            </div>
-                            <div class="services-grid">
-                                <a href="<?= $base_url ?>about-us.php#our-story" class="service-pill">Our Story <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>about-us.php#team" class="service-pill">Our Team <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                            </div>
-                        </div>
                     </li>
-                    <li>
-                        <a href="<?= $base_url ?>service.php">Services</a>
 
-                        <!-- <div class="mega-dropdown" id="servicesMenu">
-                            <div class="dropdown-header">
-                                <h3>Services</h3>
-                                <a class="<?= $base_url ?>service.php">View All</a>
-                            </div>
-                            <div class="services-grid">
-                                <a href="<?= $base_url ?>services/retirement-planning.php" class="service-pill">Retirement planning <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>services/pensions-and-investments.php" class="service-pill">NHS pension support <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>contingent-decisions.php" class="service-pill">McCloud and Contingent decision <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>mortgages.php" class="service-pill">Mortgages <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>services/protection.php" class="service-pill">Protection <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="<?= $base_url ?>inheritance-tax.php" class="service-pill">Inheritance Tax / Trust planning <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                            </div>
-                        </div> -->
-                    </li>
-                    <!-- <li><a href="#">Faqs</a></li> -->
                     <li class="dropdown-item">
-                        <a href="javascript:void(0)" class="menu-trigger" data-target="linksMenu">Useful Links</a>
-                        <div class="mega-dropdown" id="linksMenu">
-                            <div class="dropdown-header">
-                                <h3>Useful Links</h3>
-                                <a class="#">View All</a>
-                            </div>
-                            <div class="services-grid">
-                                <a href="#" class="service-pill">Calculators <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="#" class="service-pill">Resources <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                            </div>
-                        </div>
+                        <a href="javascript:void(0)" class="menu-trigger" data-target="servicesMenu">Services</a>
                     </li>
+
+                    <!-- <li class="dropdown-item">
+                        <a href="javascript:void(0)" class="menu-trigger" data-target="linksMenu">Useful Links</a>
+                    </li> -->
+
                     <li class="dropdown-item">
                         <a href="javascript:void(0)" class="menu-trigger" data-target="exploreMenu">Explore More</a>
-                        <div class="mega-dropdown" id="exploreMenu">
-                            <div class="dropdown-header">
-                                <h3>Explore More</h3>
-                                <a class="#">View All</a>
-                            </div>
-                            <div class="services-grid">
-                                <a href="#" class="service-pill">Blog <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                                <a href="#" class="service-pill">News <span class="arrow"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 9H17" stroke="url(#paint0_linear_785_234)" stroke-width="2" stroke-linecap="round" />
-                                            <path d="M10 1L18 9L10 17" stroke="url(#paint1_linear_785_234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_785_234" x1="1" y1="9" x2="2.91369" y2="14.7292" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_785_234" x1="10" y1="1" x2="19.4503" y2="1.88414" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#279C5C" />
-                                                    <stop offset="1" stop-color="#043B1C" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </span></a>
-                            </div>
-                        </div>
                     </li>
                 </ul>
             </nav>
-
-            <div class="overlay" id="bgOverlay"></div>
         </div>
     </div>
 </header>
 
+<div class="overlay" id="bgOverlay"></div>
+
 <div class="book-apt-btn">
-<a href="https://outlook.office.com/book/WealthGeniusLtd1@wealthgenius.co.uk/?ismsaljsauthenabled" target="_blank">Book an Appoitment</a>
+    <a href="https://outlook.office.com/book/WealthGeniusLtd1@wealthgenius.co.uk/?ismsaljsauthenabled" target="_blank">Book an Appoitment</a>
 </div>
+
+<!-- About Us Dropdown -->
+<div class="mega-dropdown" id="aboutMenu">
+    <button class="mobile-back" type="button">Back</button>
+    <div class="mega-container single-column">
+        <ul class="mega-single-list">
+            <li>
+                <a href="<?= $base_url ?>about-us.php#our-story">Our Story <span>›</span></a>
+            </li>
+            <li>
+                <a href="<?= $base_url ?>about-us.php#team">Our Team <span>›</span></a>
+            </li>
+            <li class="view-all">
+                <a href="<?= $base_url ?>about-us.php">View All <span>›</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Services Dropdown -->
+<div class="mega-dropdown" id="servicesMenu">
+    <button class="mobile-back" type="button">Back</button>
+    <div class="mega-container">
+
+        <!-- LEFT COLUMN -->
+        <div class="mega-left">
+            <ul>
+                <li class="active" data-target="planning">Financial Planning <span>›</span></li>
+                <li data-target="savings">Savings <span>›</span></li>
+                <!-- <li data-target="pensions">Pensions &amp; Investments <span>›</span></li> -->
+                <li data-target="wealth">Wealth Management <span>›</span></li>
+                <li data-target="tax">Taxation <span>›</span></li>
+                <li data-target="protection">Protection <span>›</span></li>
+                <li data-target="business-protection">Business Protection <span>›</span></li>
+            </ul>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="mega-right">
+            <div class="mega-content active" id="planning">
+                <a href="<?= $base_url ?>services/financial-planning/introduction-to-financial-planning.php">Introduction To Financial Planning</a>
+            </div>
+
+            <div class="mega-content" id="savings">
+                <a href="<?= $base_url ?>services/savings/introduction-to-savings-and-investments.php">Introduction To Savings &amp; Investments</a>
+                <a href="<?= $base_url ?>services/savings/capital-investment-bonds.php">Capital Investment Bonds</a>
+                <a href="<?= $base_url ?>services/savings/junior-isas.php">Junior ISAs</a>
+                <a href="<?= $base_url ?>services/savings/national-savings-products.php">National Savings Products</a>
+                <a href="<?= $base_url ?>services/savings/endowments.php">Endowments</a>
+                <a href="<?= $base_url ?>services/savings/isas.php">ISAs</a>
+                <a href="<?= $base_url ?>services/savings/equities.php">Equities</a>
+                <a href="<?= $base_url ?>services/savings/collective-investments.php">Collectives</a>
+                <a href="<?= $base_url ?>services/savings/unit-trusts.php">Unit Trusts</a>
+                <a href="<?= $base_url ?>services/savings/open-ended-investment-companies.php">OEICs</a>
+            </div>
+
+            <!-- <div class="mega-content" id="pensions">
+                <a href="<?= $base_url ?>nhs-pension-guidance.php">NHS Pension Guidance</a>
+                <a href="<?= $base_url ?>mccloud-remedy.php">McCloud Remedy</a>
+                <a href="<?= $base_url ?>services/retirement-planning.php">Retirement Planning</a>
+                <a href="<?= $base_url ?>services/final-salary-pensions.php">Final Salary Pensions</a> -->
+                <!-- <a href="<?= $base_url ?>services/cash-equivalent-transfer-value-cetv.php">Cash Equivalent Transfer Value (CETV)</a> -->
+                <!-- <a href="<?= $base_url ?>services/annuities.php">Annuities</a> -->
+                <!-- <a href="<?= $base_url ?>services/income-drawdown-unsecured-pension.php">Income Drawdown / Unsecured Pension</a> -->
+                <!-- <a href="<?= $base_url ?>services/personal-pensions.php">Personal Pensions</a> -->
+                <!-- <a href="<?= $base_url ?>services/state-pension.php">State Pension</a> -->
+                <!-- <a href="#">SIPP</a> 
+            </div> -->
+
+            <div class="mega-content" id="wealth">
+                <a href="<?= $base_url ?>services/wealth-management/introduction-to-wealth-management.php">Introduction to Wealth Management</a>
+                <a href="<?= $base_url ?>services/wealth-management/relationship-management.php">Relationship Management</a>
+                <!-- <a href="<?= $base_url ?>inheritance-tax.php">Estate Planning</a> -->
+            </div>
+
+            <div class="mega-content" id="tax">
+                <a href="<?= $base_url ?>services/taxation/introduction-to-taxation.php">Introduction to Taxation</a>
+                <a href="<?= $base_url ?>services/taxation/income-tax.php">Income Tax</a>
+                <a href="<?= $base_url ?>services/taxation/capital-gains-tax.php">Capital Gains Tax</a>
+                <a href="<?= $base_url ?>services/taxation/inheritance-tax.php">Inheritance Tax</a>
+                <a href="<?= $base_url ?>tax-efficient-investments.php">Tax Efficient Investments</a>
+            </div>
+
+            <div class="mega-content" id="protection">
+                <a href="<?= $base_url ?>services/protection/why-protection-is-important.php">Why Protection is Important</a>
+                <a href="<?= $base_url ?>services/protection/wg-retirement-protection.php">Retirement Protection</a>
+                <a href="<?= $base_url ?>services/protection/life-assurance.php">Life Assurance</a>
+                <a href="<?= $base_url ?>services/protection/family-income-benefit.php">Family Income Benefit</a>
+                <a href="<?= $base_url ?>services/protection/income-protection.php">Income Protection</a>
+                <a href="<?= $base_url ?>services/protection/private-medical.php">Private Medical Insurance</a>
+                <a href="<?= $base_url ?>services/protection/critical-illness.php">Critical Illness</a>
+            </div>
+
+            <div class="mega-content" id="business-protection">
+                <a href="<?= $base_url ?>services/business-protection/introduction-to-business-insurance.php">Introduction to Business Protection</a>
+                <a href="<?= $base_url ?>services/business-protection/keyperson-insurance.php">Key Person</a>
+                <a href="<?= $base_url ?>services/business-protection/share-protection.php">Share Protection</a>
+                <a href="<?= $base_url ?>services/business-protection/directors-and-staff-benefits.php">Directors & Staff Benefits</a>
+                <a href="<?= $base_url ?>services/business-protection/income-protection-insurance.php">Income Protection</a>
+                <a href="<?= $base_url ?>services/business-protection/employers-liability-insurance.php">Employers' Liability</a>
+                <a href="<?= $base_url ?>services/business-protection/professional-indemnity-insurance.php">Professional Indemnity</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Useful Links Dropdown -->
+<!-- <div class="mega-dropdown" id="linksMenu">
+    <div class="mega-container single-column">
+        <ul class="mega-single-list">
+            <li><a href="#">Calculators <span>›</span></a></li>
+            <li><a href="#">Resources <span>›</span></a></li>
+        </ul>
+    </div>
+</div> -->
+
+<!-- Explore More Dropdown -->
+<div class="mega-dropdown" id="exploreMenu">
+    <button class="mobile-back" type="button">Back</button>
+    <div class="mega-container single-column">
+        <ul class="mega-single-list">
+            <li><a href="https://a-c-m-e.in/wealthGenius/blogs/">Blog <span>›</span></a></li>
+            <li><a href="<?= $base_url ?>guides.php">Guides <span>›</span></a></li>
+        </ul>
+    </div>
+</div>
+

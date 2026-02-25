@@ -2,14 +2,13 @@
 /*Dropdown Menu*/
 document.addEventListener('DOMContentLoaded', function () {
   const triggers = document.querySelectorAll('.menu-trigger');
-  const overlay = document.querySelector('.overlay');
+  const overlay = document.getElementById('bgOverlay');
   const allMenus = document.querySelectorAll('.mega-dropdown');
-  // 1. Select the links
   const menuLinks = document.querySelectorAll('.mega-dropdown a');
 
   function closeAll() {
     allMenus.forEach(menu => menu.classList.remove('is-open'));
-    overlay.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
     document.body.style.overflow = '';
   }
 
@@ -18,33 +17,72 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const targetId = this.getAttribute('data-target');
       const targetMenu = document.getElementById(targetId);
+      if (!targetMenu) return;
 
-      if (targetMenu) {
-        if (targetMenu.classList.contains('is-open')) {
-          closeAll();
-        } else {
-          allMenus.forEach(m => m.classList.remove('is-open'));
-          targetMenu.classList.add('is-open');
-          overlay.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
-        }
+      if (targetMenu.classList.contains('is-open')) {
+        closeAll();
+      } else {
+        allMenus.forEach(m => m.classList.remove('is-open'));
+        targetMenu.classList.add('is-open');
+        if (overlay) overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
       }
     });
   });
 
-  // 2. Add the listener to close on link click
-  menuLinks.forEach(link => {
-    link.addEventListener('click', closeAll);
-  });
+  /* ---- mega-left tab switching (data-target -> mega-content) ---- */
+  const servicesMenu = document.getElementById('servicesMenu');
+  if (servicesMenu) {
+    const leftItems = servicesMenu.querySelectorAll('.mega-left li');
+    const panels = servicesMenu.querySelectorAll('.mega-content');
 
-  overlay.addEventListener('click', closeAll);
+    function switchPanel(item) {
+      const target = item.getAttribute('data-target');
+      leftItems.forEach(li => li.classList.remove('active'));
+      item.classList.add('active');
+      panels.forEach(p => {
+        p.classList.toggle('active', p.id === target);
+      });
+    }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAll();
-  });
+    leftItems.forEach(item => {
+      item.addEventListener('click', function (e) { e.stopPropagation(); switchPanel(this); });
+    });
+  }
+
+  /* ---- Close on link click / overlay / ESC ---- */
+  menuLinks.forEach(link => link.addEventListener('click', closeAll));
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
 });
+/*Dropdown Menu End*/
 
-/*Dropdwon Menu End*/
+
+/*Header Sticky*/
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  function updateHeaderHeight() {
+    const h = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--header-h', h + 'px');
+  }
+
+  function handleSticky() {
+    if (window.scrollY > 50) {
+      header.classList.add('is-sticky');
+    } else {
+      header.classList.remove('is-sticky');
+    }
+    updateHeaderHeight();
+  }
+
+  // Set on load
+  updateHeaderHeight();
+  window.addEventListener('scroll', handleSticky);
+  window.addEventListener('resize', updateHeaderHeight);
+});
+/*Header Sticky End*/
 
 
 $(document).ready(function () {
@@ -129,31 +167,60 @@ $(document).ready(function () {
     ]
   });
 
+  $('.related-links-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1300,
+    pauseOnHover: false,
+    arrows: false,
+    dots: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
 });
 
 
 
 
-
-/*Tab Active */
+/* =========================
+   TAB ACTIVE (SAFE)
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
+
   const sections = document.querySelectorAll(".taxtion-content section");
   const navItems = document.querySelectorAll(".taxation-nav-tabs li");
 
-  if (navItems.length > 0) {
+  if (navItems.length) {
     navItems[0].classList.add("active");
   }
 
-  if (sections.length > 0 || navItems.length > 0) {
+  if (sections.length && navItems.length) {
+
     window.addEventListener("scroll", () => {
+
       let current = "";
 
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 150;
         const sectionHeight = section.offsetHeight;
 
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
+        if (window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight) {
+          current = section.id;
         }
       });
 
@@ -161,64 +228,65 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = li.querySelector("a");
         if (!link) return;
 
-        li.classList.remove("active");
-
-        if (link.getAttribute("href") === `#${current}`) {
-          li.classList.add("active");
-        }
+        li.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${current}`
+        );
       });
+
     });
   }
 });
 
 
-/*Menu Mobile */
+/* =========================
+   MOBILE MENU (SAFE)
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = () => window.innerWidth <= 991;
+
   const triggers = document.querySelectorAll(".menu-trigger");
-  const nav = document.querySelector(".main-nav nav");
   const subMenus = document.querySelectorAll(".mega-dropdown");
   const overlay = document.getElementById("bgOverlay");
 
-  /* ======================
-     HAMBURGER (MOBILE)
-  ====================== */
   let burger;
 
   const closeMenu = () => {
     document.body.classList.remove("menu-open");
-    subMenus.forEach(menu => menu.classList.remove("active"));
+
+    subMenus.forEach(menu => {
+      menu.classList.remove("active");
+      menu.querySelector(".mega-container")?.classList.remove("show-right");
+    });
+
     overlay?.classList.remove("is-open");
   };
 
   const createHamburger = () => {
+
     if (!isMobile() || document.querySelector(".mobile-hamburger")) return;
 
     burger = document.createElement("div");
     burger.className = "mobile-hamburger";
     burger.innerHTML = "<span></span>";
+
     document.body.appendChild(burger);
 
     burger.addEventListener("click", () => {
       const isOpen = document.body.classList.toggle("menu-open");
 
-      if (!isOpen) {
-        closeMenu();
-      } else {
-        overlay?.classList.add("is-open");
-      }
+      if (!isOpen) closeMenu();
+      else overlay?.classList.add("is-open");
     });
   };
 
   createHamburger();
 
-  /* ======================
-     SUBMENU SLIDE PANELS
-  ====================== */
+  /* CREATE BACK BUTTONS (no click handlers here) */
   triggers.forEach(trigger => {
-    const targetId = trigger.dataset.target;
-    const panel = document.getElementById(targetId);
+
+    const panel = document.getElementById(trigger.dataset.target);
     if (!panel) return;
 
     if (!panel.querySelector(".mobile-back")) {
@@ -226,147 +294,191 @@ document.addEventListener("DOMContentLoaded", () => {
       back.className = "mobile-back";
       back.innerText = "Back";
       panel.prepend(back);
-
-      back.addEventListener("click", () => {
-        panel.classList.remove("active");
-      });
     }
 
     trigger.addEventListener("click", e => {
+
       if (!isMobile()) return;
+
       e.preventDefault();
+
+      subMenus.forEach(menu => {
+        menu.classList.remove("active");
+        menu.querySelector(".mega-container")?.classList.remove("show-right");
+      });
 
       document.body.classList.add("menu-open");
       panel.classList.add("active");
+
       overlay?.classList.add("is-open");
     });
   });
 
-  /* ======================
-     HANDLE RESIZE
-  ====================== */
+  /* ✅ BULLETPROOF BACK BUTTON HANDLER */
+  document.addEventListener("click", (e) => {
+
+    const backBtn = e.target.closest(".mobile-back");
+    if (!backBtn) return;
+
+    const panel = backBtn.closest(".mega-dropdown");
+    if (!panel) return;
+
+    const container = panel.querySelector(".mega-container");
+
+    /* Right panel → slide back */
+    if (container?.classList.contains("show-right")) {
+      container.classList.remove("show-right");
+      return;
+    }
+
+    /* Submenu → close submenu only */
+    panel.classList.remove("active");
+
+  });
+
+  /* SERVICES SLIDE */
+  const servicesMenu = document.getElementById("servicesMenu");
+
+  if (servicesMenu) {
+
+    const container = servicesMenu.querySelector(".mega-container");
+    const leftItems = servicesMenu.querySelectorAll(".mega-left li");
+    const contents = servicesMenu.querySelectorAll(".mega-content");
+
+    if (container && leftItems.length) {
+
+      leftItems.forEach(item => {
+        item.addEventListener("click", () => {
+
+          if (!isMobile()) return;
+
+          const target = item.dataset.target;
+
+          leftItems.forEach(li => li.classList.remove("active"));
+          item.classList.add("active");
+
+          contents.forEach(content => {
+            content.classList.toggle("active", content.id === target);
+          });
+
+          container.classList.add("show-right");
+        });
+      });
+    }
+  }
+
+  if (overlay) overlay.addEventListener("click", closeMenu);
+
   window.addEventListener("resize", () => {
     if (!isMobile()) {
       closeMenu();
       burger?.remove();
       burger = null;
-    } else {
-      createHamburger();
-    }
+    } else createHamburger();
   });
 
 });
-/*Menu Mobile */
-
-/*Booking scroll hide */
-
-document.addEventListener("DOMContentLoaded", function () {
-  const bookBtn = document.querySelector('.book-apt-btn');
-  // Using 'footer' as the universal trigger for all pages
-  const trigger = document.querySelector('footer');
-
-  if (bookBtn && trigger) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          bookBtn.classList.add('btn-hidden');
-        } else {
-          bookBtn.classList.remove('btn-hidden');
-        }
-      });
-    }, { threshold: 0 }); // Triggers as soon as footer hits the bottom of the screen
-
-    observer.observe(trigger);
-  }
-});
 
 
-
-/*Select Dropdown for tab pages */
+/* =========================
+   BOOKING BUTTON HIDE (SAFE)
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth < 992) {
-    const nav = document.querySelector(".taxation-nav-tabs");
-    if (nav) {
-      const ul = nav.querySelector("ul");
-      if (ul) {
-        // Create mobile dropdown button
-        const toggle = document.createElement("div");
-        toggle.className = "taxation-mobile-toggle";
 
-        // Get active tab text
-        const active = nav.querySelector("li.active a") || nav.querySelector("a");
-        if (active) {
-          toggle.innerHTML = `<span>${active.innerText}</span><i>▼</i>`;
+  const bookBtn = document.querySelector(".book-apt-btn");
+  const trigger = document.querySelector("footer");
 
-          // Insert toggle before UL
-          nav.insertBefore(toggle, ul);
+  if (!bookBtn || !trigger) return;
 
-          // Toggle menu
-          toggle.addEventListener("click", () => {
-            ul.classList.toggle("show");
-          });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      bookBtn.classList.toggle("btn-hidden", entry.isIntersecting);
+    });
+  });
 
-          // On link click
-          nav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", function () {
-              toggle.querySelector("span").innerText = this.innerText;
-              ul.classList.remove("show");
-
-              nav.querySelectorAll("li").forEach(li => li.classList.remove("active"));
-              this.parentElement.classList.add("active");
-            });
-          });
-        }
-      }
-    }
-  }
+  observer.observe(trigger);
 });
 
 
-const faqItems = document.querySelectorAll('.faq-item');
+/* =========================
+   MOBILE TAB DROPDOWN (SAFE)
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-faqItems.forEach(item => {
-  const question = item.querySelector('.faq-question');
+  if (window.innerWidth >= 992) return;
 
-  question.addEventListener('click', () => {
-    faqItems.forEach(i => {
-      if (i !== item) i.classList.remove('active');
+  const nav = document.querySelector(".taxation-nav-tabs");
+  const ul = nav?.querySelector("ul");
+
+  if (!nav || !ul) return;
+
+  const toggle = document.createElement("div");
+  toggle.className = "taxation-mobile-toggle";
+
+  const active = nav.querySelector("li.active a") || nav.querySelector("a");
+  if (!active) return;
+
+  toggle.innerHTML = `<span>${active.innerText}</span><i>▼</i>`;
+  nav.insertBefore(toggle, ul);
+
+  toggle.addEventListener("click", () => ul.classList.toggle("show"));
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+      toggle.querySelector("span").innerText = this.innerText;
+      ul.classList.remove("show");
     });
-
-    item.classList.toggle('active');
   });
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
+/* =========================
+   FAQ (SAFE — FIXED CRASH)
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const faqItems = document.querySelectorAll(".faq-item");
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question");
+    if (!question) return;
+
+    question.addEventListener("click", () => {
+      faqItems.forEach(i => i !== item && i.classList.remove("active"));
+      item.classList.toggle("active");
+    });
+  });
+});
+
+
+/* =========================
+   ELIGIBILITY (SAFE)
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
 
   const button = document.querySelector(".eligibility-submit-btn");
   const selects = document.querySelectorAll(".eligibility-q");
   const followUp = document.querySelector(".followUp");
 
-  button.addEventListener("click", function () {
+  if (!button || !selects.length || !followUp) return;
+
+  button.addEventListener("click", () => {
 
     let showFollowUp = false;
 
     selects.forEach(select => {
-
       const value = select.value.toLowerCase();
 
-      // Rule 1 → Any YES
-      if (value === "yes") {
+      if (value === "yes") showFollowUp = true;
+
+      if (select.name === "q6" &&
+        (value === "a" || value === "b" || value === "a or b")) {
         showFollowUp = true;
       }
-
-      // Rule 2 → Last dropdown special logic
-      if (select.name === "q6") {
-        if (value === "a" || value === "b" || value === "a or b") {
-          showFollowUp = true;
-        }
-      }
-
     });
 
     followUp.style.display = showFollowUp ? "block" : "none";
   });
-
 });
+

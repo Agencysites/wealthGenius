@@ -269,7 +269,7 @@
     <h3 data-aos="fade-up" data-aos-delay="100">McCloud eligibility Checker</h3>
     </div>
     <div class="bookCallBtn">
-    <a data-aos="fade-up" data-aos-delay="200" href="#">Eligibility Checker</a>
+    <a data-aos="fade-up" data-aos-delay="200" href="<?= $base_url ?>mccloud-remedy-eligibility-checker.php">Eligibility Checker</a>
     </div>
     </div>
     </div>
@@ -312,13 +312,15 @@
                </div>
             </div> 
             <div class="scan-document">
+                <a href="https://forms.office.com/pages/responsepage.aspx?id=hPuvwwYtO0uFdsmijXn9_96Jvjwd1GxPs_AQbIXSoFNUOUU5WVNPSE1WOFlJVVZCNjU2VzRBQk84Ti4u&route=shorturl" target="_blank">
                 <div class="qrImg">
-                    <img src="<?= $base_url ?>assets/images/qr-code.png">
+                    <img src="<?= $base_url ?>assets/images/qr-code.svg">
                 </div>
                 <div class="qrTxt">
                 <h4 data-aos="fade-up" data-aos-delay="100">McCloud remedy support service from Wealth Genius​</h4>
                 <p data-aos="fade-up" data-aos-delay="200">McCloud Remedy Service link<br>or scan QR code</p>
                 </div>
+                </a>
             </div>                   
         </div>
     </section>
@@ -331,7 +333,7 @@
             </a>
             </div>
             <div class="guide-btn" data-aos="fade-up" data-aos-delay="100">
-                <a href="#">Click Here to View the guide</a>
+                <a href="<?= $base_url ?>assets/images/WG-McCloud-Factsheet.pdf" target="_blank">Click Here to View the guide</a>
             </div>
         </div>
     </section>
